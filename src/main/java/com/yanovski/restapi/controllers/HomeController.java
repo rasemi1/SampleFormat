@@ -8,6 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+
 @RestController
 public class HomeController {
     private final Logger logger = LogManager.getLogger(HomeController.class);
@@ -19,10 +22,15 @@ public class HomeController {
         this.helloService = helloService;
     }
 
+//    @GetMapping("/")
+//    public String hello() {
+//        logger.info("TEST");
+//        return "something...";
+//    }
+
     @GetMapping("/")
-    public String hello() {
-        logger.info("TEST");
-        return "something...";
+    public void redirect(HttpServletResponse response) throws IOException {
+        response.sendRedirect("/swagger-ui.html");
     }
 
     @GetMapping("/home_obj")
