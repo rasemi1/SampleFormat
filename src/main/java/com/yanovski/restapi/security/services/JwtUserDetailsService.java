@@ -6,6 +6,8 @@ import com.yanovski.restapi.dtos.UserDto;
 import com.yanovski.restapi.models.User;
 import com.yanovski.restapi.repositoties.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.AuthenticationServiceException;
+import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -32,6 +34,11 @@ public class JwtUserDetailsService implements UserDetailsService {
     }
 
     public User save(UserDto userDto) {
+        User existing = userRepository.findByUsername(userDto.getUsername());
+        if(existing != null) {
+            throw new AuthenticationServiceException("User exists.");
+        }
+
         User newUser = new User();
         newUser.setUsername(userDto.getUsername());
         newUser.setPassword(bcryptEncoder.encode(userDto.getPassword()));
