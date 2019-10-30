@@ -1,4 +1,5 @@
 package com.yanovski.restapi.services.impl;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Service;
@@ -21,11 +22,10 @@ public class FileProcessorService {
                     }else {
                         if(cha == ';'){
                             cha = ',';
-                        }
-                        if(cha == '"'){
+                        }else if(cha == '"'){
                             cha = '\'';
                         }
-                        sb.append((char) cha);
+                        sb.append(cha);
                     }
                     ch = reader.read();
                 }
