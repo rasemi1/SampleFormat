@@ -9,19 +9,19 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class FilePrcessorController {
-
-    private final Logger logger = LogManager.getLogger(FilePrcessorController.class);
-
-    private FileProcessorService helloService;
-
-    @Autowired
-    public FilePrcessorController(FileProcessorService helloService) {
-        this.helloService = helloService;
-    }
-
-    @GetMapping("/file")
-    public String  homeObject() throws Exception{
-        logger.info("TEST obj");
-        return helloService.store("test1");
-    }
+//
+//    private final Logger logger = LogManager.getLogger(FilePrcessorController.class);
+//
+//    private FileProcessorService helloService;
+//
+//    @Autowired
+//    public FilePrcessorController(FileProcessorService helloService) {
+//        this.helloService = helloService;
+//    }
+//
+//    @GetMapping("/file")
+//    public String  homeObject() throws Exception{
+//        logger.info("TEST obj");
+//        return helloService.store("test1");
+//    }
 }
