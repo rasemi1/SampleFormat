@@ -27,11 +27,11 @@ public class HomeController {
 //        logger.info("TEST");
 //        return "something...";
 //    }
-
-    @GetMapping("/")
-    public void redirect(HttpServletResponse response) throws IOException {
-        response.sendRedirect("/swagger-ui.html");
-    }
+//
+//    @GetMapping("/")
+//    public void redirect(HttpServletResponse response) throws IOException {
+//        response.sendRedirect("/swagger-ui.html");
+//    }
 
     @GetMapping("/home_obj")
     public HomeDto homeObject() {
