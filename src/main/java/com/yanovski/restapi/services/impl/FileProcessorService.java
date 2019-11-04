@@ -10,13 +10,14 @@ public class FileProcessorService {
 
     private final Logger logger = LogManager.getLogger(FileProcessorService.class);
 
-        public String store(String name) throws Exception {
-            File file = new File("C:\\Users\\Kozak\\Desktop\\01_Java\\04_Spring\\JWT-REST-API\\upload-dir\\test1");
+        public String store(String filename) throws Exception {
+            File file = new File("C:\\Users\\Kozak\\Desktop\\01_Java\\04_Spring\\JWT-REST-API\\upload-dir\\" + filename + ".txt");
             StringBuilder sb = new StringBuilder();
-            FileReader reader = new FileReader(file + ".txt");
+            FileReader reader = new FileReader(file);
                 int ch = reader.read();
                 while (ch != -1) {
                     char cha = (char) ch;
+//                    if (cha == 'U2028')
                     if(cha == '&'){
                         sb.append("and");
                     }else {
